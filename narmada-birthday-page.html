@@ -1,0 +1,323 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#8f174b">
+
+  <title>Happy Birthday, Narmada ❤️</title>
+
+  <style>
+
+    :root {
+      --pink-dark: #74113d;
+      --pink: #a91e5b;
+      --pink-light: #f8dce8;
+      --text: #fff4f8;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      padding: clamp(22px, 5vw, 56px) 16px;
+
+      color: var(--text);
+
+      font-family: Georgia, "Times New Roman", serif;
+
+      background:
+        radial-gradient(
+          circle at 12% 10%,
+          rgba(255,190,215,.16),
+          transparent 28%
+        ),
+        radial-gradient(
+          circle at 90% 85%,
+          rgba(255,130,180,.13),
+          transparent 30%
+        ),
+        linear-gradient(
+          145deg,
+          #4b0928,
+          #851542 52%,
+          #5a0c32
+        );
+
+      display: flex;
+      justify-content: center;
+    }
+
+    .page {
+      width: min(100%, 780px);
+      margin: auto;
+      text-align: center;
+    }
+
+    .eyebrow {
+      margin: 0 0 20px;
+      color: #ffd4e4;
+
+      font: 600 .78rem/1.4 system-ui, sans-serif;
+
+      letter-spacing: .24em;
+      text-transform: uppercase;
+    }
+
+    /* GREETING CARD */
+
+    .card-frame {
+      width: min(100%, 430px);
+      margin: 0 auto;
+      padding: 10px;
+
+      border: 1px solid rgba(255,235,243,.55);
+      border-radius: 20px;
+
+      background: linear-gradient(
+        145deg,
+        #ffeaf2,
+        #d88aa9
+      );
+
+      box-shadow: 0 24px 70px rgba(20,0,10,.38);
+    }
+
+    .card-frame img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+    }
+
+    /* BIRTHDAY MESSAGE */
+
+    .message {
+      position: relative;
+
+      margin: clamp(28px, 5vw, 42px) auto 0;
+      padding: clamp(24px, 5vw, 42px);
+
+      max-width: 680px;
+
+      border: 1px solid rgba(255,220,234,.28);
+      border-radius: 22px;
+
+      background: rgba(255,235,243,.09);
+
+      box-shadow: 0 18px 50px rgba(20,0,10,.2);
+
+      backdrop-filter: blur(8px);
+
+      text-align: left;
+    }
+
+    .message h1 {
+      margin: 0 0 22px;
+
+      color: #ffd5e5;
+
+      font-size: clamp(1.65rem, 5vw, 2.35rem);
+      line-height: 1.2;
+
+      text-align: center;
+    }
+
+    .message p {
+      margin: 0 0 19px;
+
+      font-size: clamp(1.05rem, 2.8vw, 1.2rem);
+
+      line-height: 1.8;
+
+      overflow-wrap: break-word;
+    }
+
+    .message p:last-of-type {
+      margin-bottom: 0;
+    }
+
+    /* HEART ANIMATION */
+
+    .heart {
+      margin-top: 26px;
+
+      color: #ffb8d2;
+
+      font-size: 1.5rem;
+      letter-spacing: .35em;
+
+      animation: heartbeat 1.8s ease-in-out infinite;
+
+      text-align: center;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.12);
+      }
+    }
+
+    /* SURPRISE BUTTON */
+
+    .surprise-btn {
+      display: inline-block;
+
+      margin-top: 32px;
+      padding: 16px 32px;
+
+      color: white;
+
+      background: linear-gradient(
+        135deg,
+        #ff5c9a,
+        #d62970
+      );
+
+      border: 1px solid rgba(255,255,255,.35);
+      border-radius: 50px;
+
+      font-family: system-ui, sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+
+      text-decoration: none;
+      letter-spacing: .4px;
+
+      box-shadow: 0 8px 25px rgba(255,70,140,.3);
+
+      transition: all .3s ease;
+
+      cursor: pointer;
+    }
+
+    .surprise-btn:hover {
+      transform: translateY(-4px) scale(1.04);
+
+      box-shadow: 0 12px 35px rgba(255,70,140,.5);
+    }
+
+    .surprise-btn:active {
+      transform: scale(.96);
+    }
+
+    .surprise-btn:focus-visible {
+      outline: 3px solid white;
+      outline-offset: 5px;
+    }
+
+    /* MOBILE RESPONSIVE */
+
+    @media (max-width: 480px) {
+
+      body {
+        padding: 24px 13px 36px;
+      }
+
+      .card-frame {
+        padding: 7px;
+        border-radius: 15px;
+      }
+
+      .message {
+        padding: 23px 19px;
+        border-radius: 17px;
+      }
+
+      .message p {
+        line-height: 1.72;
+      }
+
+      .surprise-btn {
+        width: 100%;
+        max-width: 310px;
+        padding: 16px 20px;
+      }
+    }
+
+    /* REDUCED MOTION */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      *, *::before, *::after {
+        animation: none !important;
+        scroll-behavior: auto !important;
+        transition: none !important;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <main class="page">
+
+    <p class="eyebrow"></p>
+
+    <!-- GREETING CARD -->
+
+    <div class="card-frame">
+
+      <img
+        src="narmada_birthday_card.png"
+        alt="Happy Birthday Narmada greeting card with her photo">
+
+    </div>
+
+    <!-- BIRTHDAY MESSAGE -->
+
+    <section class="message" aria-label="Birthday message">
+
+      <h1>Happiest Birthday, Narmada!! 💙</h1>
+
+      <p>
+        You are 20..... nowwww! You are one of the purest
+        hearts I've ever seen. Lucky to have met you!
+      </p>
+
+      <p>
+        You are already strong, but inka strong avvaliii
+        chalaaaa, truck, car anni lepi padese anthaaa 💪,
+      </p>
+
+      <p>
+        The cutest part about you is your smile.
+        Don't let anyone ruin it.
+        I know you won't, and I won't either.
+      </p>
+
+      <p>
+        Hope you celebrate many more happy birthdays
+        in the future.... ❤️
+      </p>
+
+      <div class="heart" aria-hidden="true">
+        ♥ ♥ ♥
+      </div>
+
+    </section>
+
+    <!-- SURPRISE BUTTON -->
+
+    <a href="index.html" class="surprise-btn">
+      Click to view a surprise ✨
+    </a>
+
+  </main>
+
+</body>
+</html>
