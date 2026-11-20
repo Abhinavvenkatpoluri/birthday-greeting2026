@@ -1,568 +1,345 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#fce8f0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#8f174b">
 
-  <!-- PRIVATE SOCIAL MEDIA PREVIEW -->
-  <title>A Little Surprise </title>
+  <!-- ACTUAL WEBSITE TITLE -->
+  <title>Happy Birthday, Narmada ❤️</title>
 
-  <meta name="description"
-        content="Something special is waiting for you. Open when you're ready.">
+  <!-- INSTAGRAM / WHATSAPP LINK PREVIEW -->
+  <meta name="description" content="Birthday Greetings">
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="A Little Surprise ">
-  <meta property="og:description"
-        content="Something special is waiting for you. Open when you're ready.">
+  <meta property="og:title" content="Birthday Greetings">
+  <meta property="og:description" content="">
   <meta property="og:url"
         content="https://birthday-greeting2026.vercel.app/">
+
   <meta property="og:image"
         content="https://birthday-greeting2026.vercel.app/preview.jpg">
+
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="A Little Surprise ">
-  <meta name="twitter:description"
-        content="Something special is waiting for you.">
+  <meta name="twitter:title" content="Birthday Greetings">
+  <meta name="twitter:description" content="">
+  <meta name="twitter:image"
+        content="https://birthday-greeting2026.vercel.app/preview.jpg">
 
   <style>
+
     :root {
-      color-scheme: light;
-      --pink: #f9dce8;
-      --surface: rgba(255,255,255,.78);
-      --shadow: 0 18px 55px rgba(174,105,143,.16);
-      --page-gutter: clamp(12px, 3vw, 30px);
+      --pink-dark: #74113d;
+      --pink: #a91e5b;
+      --pink-light: #f8dce8;
+      --text: #fff4f8;
     }
 
-    *, *::before, *::after {
+    * {
       box-sizing: border-box;
     }
 
     html {
-      min-width: 320px;
       scroll-behavior: smooth;
-      background: #fcecf2;
     }
 
     body {
       margin: 0;
-      min-height: 100svh;
-      overflow-x: clip;
-      color: #593d50;
+      min-height: 100vh;
+      padding: clamp(22px, 5vw, 56px) 16px;
+
+      color: var(--text);
+
+      font-family: Georgia, "Times New Roman", serif;
+
       background:
-        radial-gradient(ellipse at 12% 18%, #fff9, transparent 35%),
-        radial-gradient(ellipse at 90% 80%, #e8d8f6d9, transparent 38%),
-        linear-gradient(135deg, #fce8f0, #fff5f6 48%, #f1eafa);
-      font-family: system-ui, -apple-system, BlinkMacSystemFont,
-        "Segoe UI", sans-serif;
+        radial-gradient(
+          circle at 12% 10%,
+          rgba(255,190,215,.16),
+          transparent 28%
+        ),
+        radial-gradient(
+          circle at 90% 85%,
+          rgba(255,130,180,.13),
+          transparent 30%
+        ),
+        linear-gradient(
+          145deg,
+          #4b0928,
+          #851542 52%,
+          #5a0c32
+        );
+
+      display: flex;
+      justify-content: center;
     }
 
-    /* SNOWFALL */
-
-    #snow {
-      position: fixed;
-      inset: 0;
-      z-index: 5;
-      overflow: hidden;
-      pointer-events: none;
-      contain: strict;
+    .page {
+      width: min(100%, 780px);
+      margin: auto;
+      text-align: center;
     }
 
-    .flake {
-      position: absolute;
-      top: -18px;
-      border-radius: 50%;
-      background: #fff;
-      box-shadow: 0 0 8px #fff;
-      animation: fall linear infinite;
-      will-change: transform;
+    .eyebrow {
+      margin: 0 0 20px;
+      color: #ffd4e4;
+
+      font: 600 .78rem/1.4 system-ui, sans-serif;
+
+      letter-spacing: .24em;
+      text-transform: uppercase;
     }
 
-    @keyframes fall {
-      0% {
-        transform: translate3d(0,-5vh,0);
-        opacity: 0;
-      }
+    /* GREETING CARD */
 
-      12%, 88% {
-        opacity: .8;
-      }
+    .card-frame {
+      width: min(100%, 430px);
+      margin: 0 auto;
+      padding: 10px;
 
-      100% {
-        transform: translate3d(35px,110vh,0);
-        opacity: 0;
-      }
-    }
+      border: 1px solid rgba(255,235,243,.55);
+      border-radius: 20px;
 
-    /* MAIN */
-
-    main {
-      width: min(100%, 1180px);
-      margin-inline: auto;
-      padding: clamp(14px, 4vw, 48px) var(--page-gutter) 64px;
-    }
-
-    /* VIDEO */
-
-    .video-wrap {
-      padding: clamp(5px, 1vw, 10px);
-      border: 1px solid #ffffffd9;
-      border-radius: clamp(15px, 2.2vw, 26px);
       background: linear-gradient(
-        135deg,
-        #fff,
-        #f2c9da,
-        #e7dcf3
+        145deg,
+        #ffeaf2,
+        #d88aa9
       );
-      box-shadow: var(--shadow);
+
+      box-shadow: 0 24px 70px rgba(20,0,10,.38);
     }
 
-    video {
+    .card-frame img {
       display: block;
       width: 100%;
-      height: min(76svh, 720px);
-      min-height: 220px;
-      aspect-ratio: 16 / 9;
-      object-fit: contain;
-      background: #2d2028;
-      border-radius: clamp(10px, 1.5vw, 18px);
+      height: auto;
+      border-radius: 12px;
     }
 
-    /* PLAY WITH SOUND BUTTON */
+    /* BIRTHDAY MESSAGE */
 
-    .play-btn {
-      display: block;
-      margin: 18px auto 12px;
-      padding: 15px 32px;
-      border: 1px solid rgba(255,255,255,.6);
-      border-radius: 50px;
+    .message {
+      position: relative;
+
+      margin: clamp(28px, 5vw, 42px) auto 0;
+      padding: clamp(24px, 5vw, 42px);
+
+      max-width: 680px;
+
+      border: 1px solid rgba(255,220,234,.28);
+      border-radius: 22px;
+
+      background: rgba(255,235,243,.09);
+
+      box-shadow: 0 18px 50px rgba(20,0,10,.2);
+
+      backdrop-filter: blur(8px);
+
+      text-align: left;
+    }
+
+    .message h1 {
+      margin: 0 0 22px;
+
+      color: #ffd5e5;
+
+      font-size: clamp(1.65rem, 5vw, 2.35rem);
+      line-height: 1.2;
+
+      text-align: center;
+    }
+
+    .message p {
+      margin: 0 0 19px;
+
+      font-size: clamp(1.05rem, 2.8vw, 1.2rem);
+
+      line-height: 1.8;
+
+      overflow-wrap: break-word;
+    }
+
+    .message p:last-of-type {
+      margin-bottom: 0;
+    }
+
+    /* HEART ANIMATION */
+
+    .heart {
+      margin-top: 26px;
+
+      color: #ffb8d2;
+
+      font-size: 1.5rem;
+      letter-spacing: .35em;
+
+      animation: heartbeat 1.8s ease-in-out infinite;
+
+      text-align: center;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.12);
+      }
+    }
+
+    /* SURPRISE BUTTON */
+
+    .surprise-btn {
+      display: inline-block;
+
+      margin-top: 32px;
+      padding: 16px 32px;
+
+      color: white;
 
       background: linear-gradient(
         135deg,
-        #f78bb6,
-        #d94c89
+        #ff5c9a,
+        #d62970
       );
 
-      color: white;
-      font-size: 16px;
-      font-weight: 650;
-      letter-spacing: .3px;
+      border: 1px solid rgba(255,255,255,.35);
+      border-radius: 50px;
+
+      font-family: system-ui, sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+
+      text-decoration: none;
+      letter-spacing: .4px;
+
+      box-shadow: 0 8px 25px rgba(255,70,140,.3);
+
+      transition: all .3s ease;
+
       cursor: pointer;
-
-      box-shadow: 0 8px 25px rgba(217,76,137,.25);
-
-      transition:
-        transform .3s ease,
-        box-shadow .3s ease;
     }
 
-    .play-btn:hover {
-      transform: translateY(-3px) scale(1.03);
-      box-shadow: 0 12px 30px rgba(217,76,137,.4);
+    .surprise-btn:hover {
+      transform: translateY(-4px) scale(1.04);
+
+      box-shadow: 0 12px 35px rgba(255,70,140,.5);
     }
 
-    .play-btn:active {
+    .surprise-btn:active {
       transform: scale(.96);
     }
 
-    .play-btn:focus-visible {
-      outline: 3px solid #a72d66;
-      outline-offset: 4px;
-    }
-
-    .play-hint {
-      margin: 0 0 12px;
-      text-align: center;
-      color: #95647b;
-      font-size: 12px;
-    }
-
-    /* GALLERY */
-
-    .gallery {
-      margin-top: clamp(42px, 8vw, 92px);
-      width: 100%;
-      overflow: hidden;
-
-      -webkit-mask-image: linear-gradient(
-        to right,
-        transparent,
-        #000 3%,
-        #000 97%,
-        transparent
-      );
-
-      mask-image: linear-gradient(
-        to right,
-        transparent,
-        #000 3%,
-        #000 97%,
-        transparent
-      );
-    }
-
-    .rail {
-      display: flex;
-      width: max-content;
-      gap: clamp(12px, 2.2vw, 25px);
-      padding: 18px 8px 30px;
-
-      animation: photo-scroll 72s linear infinite;
-      will-change: transform;
-    }
-
-    .gallery:hover .rail,
-    .gallery:focus-within .rail {
-      animation-play-state: paused;
-    }
-
-    .gallery:active .rail {
-      animation-play-state: paused;
-    }
-
-    .photo-group {
-      display: flex;
-      flex: 0 0 auto;
-      align-items: center;
-      gap: clamp(12px, 2.2vw, 25px);
-    }
-
-    @keyframes photo-scroll {
-      from {
-        transform: translateX(0);
-      }
-
-      to {
-        transform: translateX(-50%);
-      }
-    }
-
-    /* PHOTO CARDS */
-
-    .photo {
-      flex: 0 0 clamp(210px, 28vw, 330px);
-      height: clamp(250px, 36vw, 400px);
-      margin: 0;
-      padding: 8px 8px 12px;
-      border: 1px solid #ffffffed;
-      border-radius: 8px;
-      background: var(--surface);
-      box-shadow: 0 12px 35px rgba(172,104,137,.16);
-      transform: rotate(var(--tilt, 0deg));
-
-      transition:
-        transform .3s ease,
-        box-shadow .3s ease;
-    }
-
-    .photo:hover {
-      z-index: 1;
-      transform: translateY(-7px) rotate(0);
-      box-shadow: 0 20px 45px rgba(172,104,137,.24);
-    }
-
-    .photo img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      border-radius: 3px;
-      object-fit: cover;
-      background: #f5e8ee;
+    .surprise-btn:focus-visible {
+      outline: 3px solid white;
+      outline-offset: 5px;
     }
 
     /* MOBILE RESPONSIVE */
 
-    @media (max-width: 600px) {
-      main {
-        padding: 12px 10px 42px;
+    @media (max-width: 480px) {
+
+      body {
+        padding: 24px 13px 36px;
       }
 
-      video {
-        height: auto;
-        min-height: 0;
-        max-height: 72svh;
-        aspect-ratio: 9 / 16;
+      .card-frame {
+        padding: 7px;
+        border-radius: 15px;
       }
 
-      .photo {
-        flex-basis: 78vw;
-        height: min(92vw, 430px);
+      .message {
+        padding: 23px 19px;
+        border-radius: 17px;
       }
 
-      .gallery {
-        margin-top: 42px;
+      .message p {
+        line-height: 1.72;
       }
 
-      .play-btn {
-        width: min(100%, 290px);
-      }
-    }
-
-    @media (max-width: 380px) {
-      .photo {
-        flex-basis: 84vw;
-        height: 100vw;
+      .surprise-btn {
+        width: 100%;
+        max-width: 310px;
+        padding: 16px 20px;
       }
     }
 
     /* REDUCED MOTION */
 
     @media (prefers-reduced-motion: reduce) {
+
       *, *::before, *::after {
-        scroll-behavior: auto !important;
         animation: none !important;
+        scroll-behavior: auto !important;
         transition: none !important;
       }
-
-      .gallery {
-        overflow-x: auto;
-        mask-image: none;
-        -webkit-mask-image: none;
-      }
-
-      .rail {
-        transform: none !important;
-      }
     }
+
   </style>
 </head>
 
 <body>
 
-  <!-- SNOW -->
+  <main class="page">
 
-  <div id="snow" aria-hidden="true"></div>
+    <p class="eyebrow"></p>
 
-  <main>
+    <!-- GREETING CARD -->
 
-    <!-- BIRTHDAY VIDEO -->
+    <div class="card-frame">
 
-    <section class="video-wrap" aria-label="Birthday video">
+      <img
+        src="narmada_birthday_card.png"
+        alt="Happy Birthday Narmada greeting card with her photo">
 
-      <video
-        id="birthdayVideo"
-        playsinline
-        controls
-        preload="metadata">
+    </div>
 
-        <source
-          src="video_project.mp4"
-          type="video/mp4">
+    <!-- BIRTHDAY MESSAGE -->
 
-        Sorry, your browser does not support embedded videos.
+    <section class="message" aria-label="Birthday message">
 
-      </video>
+      <h1>Happiest Birthday, Narmada!! 💙</h1>
 
-      <!-- PLAY WITH SOUND BUTTON -->
-
-    
-
-      <p class="play-hint" id="playHint">
-        A little surprise is waiting for you ✨
+      <p>
+        You are 20..... nowwww! You are one of the purest
+        hearts I've ever seen. Lucky to have met you!
       </p>
 
-    </section>
+      <p>
+        You are already strong, but inka strong avvaliii
+        chalaaaa, truck, car anni lepi padese anthaaa 💪,
+      </p>
 
-    <!-- PHOTO GALLERY -->
+      <p>
+        The cutest part about you is your smile.
+        Don't let anyone ruin it.
+        I know you won't, and I won't either.
+      </p>
 
-    <section
-      class="gallery"
-      id="gallery"
-      aria-label="Photo memories">
+      <p>
+        Hope you celebrate many more happy birthdays
+        in the future.... ❤️
+      </p>
 
-      <div class="rail" id="photoRail">
-
-        <div class="photo-group" id="photoGroup">
-
-          <figure class="photo" style="--tilt:-1.5deg">
-            <img src="assets/File_000.png" alt="Memory photo 1" loading="lazy" decoding="async">
-          </figure>
-
-          <figure class="photo" style="--tilt:1.2deg">
-            <img src="assets/File_001.png" alt="Memory photo 2" loading="lazy" decoding="async">
-          </figure>
-
-          <figure class="photo" style="--tilt:-0.8deg">
-            <img src="assets/File_002.png" alt="Memory photo 3" loading="lazy" decoding="async">
-          </figure>
-
-          <figure class="photo" style="--tilt:1.6deg">
-            <img src="assets/File_003.png" alt="Memory photo 4" loading="lazy" decoding="async">
-          </figure>
-
-          <figure class="photo" style="--tilt:-1.2deg">
-            <img src="assets/File_004.png" alt="Memory photo 5" loading="lazy" decoding="async">
-          </figure>
-
-          <figure class="photo" style="--tilt:0.8deg">
-            <img src="assets/File_005.png" alt="Memory photo 6" loading="lazy" decoding="async">
-          </figure>
-
-          <figure class="photo" style="--tilt:-1.5deg">
-            <img src="assets/File_006.png" alt="Memory photo 7" loading="lazy" decoding="async">
-          </figure>
-
-          <figure class="photo" style="--tilt:1.2deg">
-            <img src="assets/File_007.png" alt="Memory photo 8" loading="lazy" decoding="async">
-          </figure>
-
-          <figure class="photo" style="--tilt:-0.8deg">
-            <img src="assets/File_008.png" alt="Memory photo 9" loading="lazy" decoding="async">
-          </figure>
-
-          <figure class="photo" style="--tilt:1.6deg">
-            <img src="assets/File_009.png" alt="Memory photo 10" loading="lazy" decoding="async">
-          </figure>
-
-          <figure class="photo" style="--tilt:-1.2deg">
-            <img src="assets/File_010.png" alt="Memory photo 11" loading="lazy" decoding="async">
-          </figure>
-
-          <figure class="photo" style="--tilt:0.8deg">
-            <img src="assets/File_011.png" alt="Memory photo 12" loading="lazy" decoding="async">
-          </figure>
-
-          <figure class="photo" style="--tilt:-1.5deg">
-            <img src="assets/File_012.png" alt="Memory photo 13" loading="lazy" decoding="async">
-          </figure>
-
-          <figure class="photo" style="--tilt:1.2deg">
-            <img src="assets/File_013.png" alt="Memory photo 14" loading="lazy" decoding="async">
-          </figure>
-
-          <figure class="photo" style="--tilt:-0.8deg">
-            <img src="assets/File_014.png" alt="Memory photo 15" loading="lazy" decoding="async">
-          </figure>
-
-          <figure class="photo" style="--tilt:1.6deg">
-            <img src="assets/File_015.png" alt="Memory photo 16" loading="lazy" decoding="async">
-          </figure>
-
-          <figure class="photo" style="--tilt:-1.2deg">
-            <img src="assets/File_016.png" alt="Memory photo 17" loading="lazy" decoding="async">
-          </figure>
-
-          <figure class="photo" style="--tilt:0.8deg">
-            <img src="assets/File_017.png" alt="Memory photo 18" loading="lazy" decoding="async">
-          </figure>
-
-          <figure class="photo" style="--tilt:-1.5deg">
-            <img src="assets/File_018.png" alt="Memory photo 19" loading="lazy" decoding="async">
-          </figure>
-
-        </div>
-
-        <!-- DUPLICATE GROUP GENERATED AUTOMATICALLY -->
-
+      <div class="heart" aria-hidden="true">
+        ♥ ♥ ♥
       </div>
+
     </section>
+
+    <!-- SURPRISE BUTTON -->
+
+    <a href="index.html" class="surprise-btn">
+      Click to view a surprise ✨
+    </a>
 
   </main>
-
-  <script>
-    (() => {
-
-      const snow = document.getElementById('snow');
-      const video = document.getElementById('birthdayVideo');
-      const playBtn = document.getElementById('playBtn');
-      const playHint = document.getElementById('playHint');
-      const gallery = document.getElementById('gallery');
-      const rail = document.getElementById('photoRail');
-      const group = document.getElementById('photoGroup');
-
-      const reduceMotion = window.matchMedia(
-        '(prefers-reduced-motion: reduce)'
-      ).matches;
-
-      /* INFINITE PHOTO GALLERY */
-
-      const clone = group.cloneNode(true);
-
-      clone.removeAttribute('id');
-      clone.setAttribute('aria-hidden', 'true');
-
-      clone.querySelectorAll('img').forEach((img) => {
-        img.alt = '';
-        img.loading = 'lazy';
-      });
-
-      rail.appendChild(clone);
-
-      /* GENERATE SNOWFALL */
-
-      if (!reduceMotion) {
-
-        const fragment = document.createDocumentFragment();
-
-        const count = window.matchMedia(
-          '(max-width: 600px)'
-        ).matches ? 28 : 55;
-
-        for (let i = 0; i < count; i++) {
-
-          const flake = document.createElement('i');
-          const size = 2 + Math.random() * 4;
-
-          flake.className = 'flake';
-          flake.style.left = `${Math.random() * 100}%`;
-          flake.style.width = `${size}px`;
-          flake.style.height = `${size}px`;
-
-          flake.style.opacity =
-            (0.35 + Math.random() * 0.55).toFixed(2);
-
-          flake.style.animationDuration =
-            `${8 + Math.random() * 13}s`;
-
-          flake.style.animationDelay =
-            `${-Math.random() * 20}s`;
-
-          fragment.appendChild(flake);
-        }
-
-        snow.appendChild(fragment);
-      }
-
-      /* PLAY VIDEO WITH SOUND */
-
-      playBtn.addEventListener('click', async () => {
-
-        video.muted = false;
-        video.volume = 1;
-
-        try {
-
-          await video.play();
-
-          playBtn.style.display = 'none';
-          playHint.style.display = 'none';
-
-        } catch (error) {
-
-          console.error('Video playback failed:', error);
-
-          playHint.textContent =
-            'Please use the video play controls to try again ❤️';
-        }
-
-      });
-
-      /* SCROLL TO GALLERY AFTER VIDEO */
-
-      video.addEventListener('ended', () => {
-
-        gallery.scrollIntoView({
-          behavior: reduceMotion ? 'auto' : 'smooth',
-          block: 'center'
-        });
-
-      });
-
-    })();
-  </script>
 
 </body>
 </html>
