@@ -5,28 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#fce8f0">
-
-  <!-- PRIVATE SOCIAL MEDIA PREVIEW -->
-  <title>A Little Surprise ❤️</title>
-
-  <meta name="description"
-        content="Something special is waiting for you. Open when you're ready.">
-
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="A Little Surprise ❤️">
-  <meta property="og:description"
-        content="Something special is waiting for you. Open when you're ready.">
-  <meta property="og:url"
-        content="https://birthday-greeting2026.vercel.app/">
-  <meta property="og:image"
-        content="https://birthday-greeting2026.vercel.app/preview.jpg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="A Little Surprise ❤️">
-  <meta name="twitter:description"
-        content="Something special is waiting for you.">
+  <meta name="description" content="A little collection of birthday memories.">
+  <title>♡</title>
 
   <style>
     :root {
@@ -137,6 +117,7 @@
       display: block;
       margin: 18px auto 12px;
       padding: 15px 32px;
+
       border: 1px solid rgba(255,255,255,.6);
       border-radius: 50px;
 
@@ -150,6 +131,7 @@
       font-size: 16px;
       font-weight: 650;
       letter-spacing: .3px;
+
       cursor: pointer;
 
       box-shadow: 0 8px 25px rgba(217,76,137,.25);
@@ -245,12 +227,17 @@
     .photo {
       flex: 0 0 clamp(210px, 28vw, 330px);
       height: clamp(250px, 36vw, 400px);
+
       margin: 0;
       padding: 8px 8px 12px;
+
       border: 1px solid #ffffffed;
       border-radius: 8px;
+
       background: var(--surface);
+
       box-shadow: 0 12px 35px rgba(172,104,137,.16);
+
       transform: rotate(var(--tilt, 0deg));
 
       transition:
@@ -276,6 +263,7 @@
     /* MOBILE RESPONSIVE */
 
     @media (max-width: 600px) {
+
       main {
         padding: 12px 10px 42px;
       }
@@ -311,6 +299,7 @@
     /* REDUCED MOTION */
 
     @media (prefers-reduced-motion: reduce) {
+
       *, *::before, *::after {
         scroll-behavior: auto !important;
         animation: none !important;
@@ -327,6 +316,7 @@
         transform: none !important;
       }
     }
+
   </style>
 </head>
 
@@ -358,12 +348,7 @@
 
       <!-- PLAY WITH SOUND BUTTON -->
 
-      <button
-        id="playBtn"
-        class="play-btn"
-        type="button">
-        ❤️ Play with sound
-      </button>
+    
 
       <p class="play-hint" id="playHint">
         A little surprise is waiting for you ✨
@@ -468,6 +453,7 @@
   </main>
 
   <script>
+
     (() => {
 
       const snow = document.getElementById('snow');
@@ -509,11 +495,15 @@
         for (let i = 0; i < count; i++) {
 
           const flake = document.createElement('i');
+
           const size = 2 + Math.random() * 4;
 
           flake.className = 'flake';
+
           flake.style.left = `${Math.random() * 100}%`;
+
           flake.style.width = `${size}px`;
+
           flake.style.height = `${size}px`;
 
           flake.style.opacity =
@@ -526,9 +516,11 @@
             `${-Math.random() * 20}s`;
 
           fragment.appendChild(flake);
+
         }
 
         snow.appendChild(fragment);
+
       }
 
       /* PLAY VIDEO WITH SOUND */
@@ -551,6 +543,7 @@
 
           playHint.textContent =
             'Please use the video play controls to try again ❤️';
+
         }
 
       });
@@ -560,13 +553,17 @@
       video.addEventListener('ended', () => {
 
         gallery.scrollIntoView({
+
           behavior: reduceMotion ? 'auto' : 'smooth',
+
           block: 'center'
+
         });
 
       });
 
     })();
+
   </script>
 
 </body>
