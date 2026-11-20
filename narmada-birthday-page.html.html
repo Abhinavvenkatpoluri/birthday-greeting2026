@@ -1,4 +1,5 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -108,6 +109,57 @@
       object-fit: contain;
       background: #2d2028;
       border-radius: clamp(10px, 1.5vw, 18px);
+    }
+
+    /* PLAY WITH SOUND BUTTON */
+
+    .play-btn {
+      display: block;
+      margin: 18px auto 12px;
+      padding: 15px 32px;
+
+      border: 1px solid rgba(255,255,255,.6);
+      border-radius: 50px;
+
+      background: linear-gradient(
+        135deg,
+        #f78bb6,
+        #d94c89
+      );
+
+      color: white;
+      font-size: 16px;
+      font-weight: 650;
+      letter-spacing: .3px;
+
+      cursor: pointer;
+
+      box-shadow: 0 8px 25px rgba(217,76,137,.25);
+
+      transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+    }
+
+    .play-btn:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 12px 30px rgba(217,76,137,.4);
+    }
+
+    .play-btn:active {
+      transform: scale(.96);
+    }
+
+    .play-btn:focus-visible {
+      outline: 3px solid #a72d66;
+      outline-offset: 4px;
+    }
+
+    .play-hint {
+      margin: 0 0 12px;
+      text-align: center;
+      color: #95647b;
+      font-size: 12px;
     }
 
     /* GALLERY */
@@ -231,6 +283,10 @@
       .gallery {
         margin-top: 42px;
       }
+
+      .play-btn {
+        width: min(100%, 290px);
+      }
     }
 
     @media (max-width: 380px) {
@@ -278,12 +334,9 @@
 
       <video
         id="birthdayVideo"
-        autoplay
-        muted
         playsinline
         controls
-        preload="metadata"
-        poster="">
+        preload="metadata">
 
         <source
           src="video_project.mp4"
@@ -292,6 +345,21 @@
         Sorry, your browser does not support embedded videos.
 
       </video>
+
+      <!-- PLAY WITH SOUND BUTTON -->
+
+      <button
+        id="playBtn"
+        class="play-btn"
+        type="button">
+
+        ❤️ Play with sound
+
+      </button>
+
+      <p class="play-hint" id="playHint">
+        A little surprise is waiting for you ✨
+      </p>
 
     </section>
 
@@ -384,7 +452,7 @@
 
         </div>
 
-        <!-- Duplicate group is generated automatically -->
+        <!-- DUPLICATE GROUP GENERATED AUTOMATICALLY -->
 
       </div>
     </section>
@@ -397,6 +465,9 @@
 
       const snow = document.getElementById('snow');
       const video = document.getElementById('birthdayVideo');
+      const playBtn = document.getElementById('playBtn');
+      const playHint = document.getElementById('playHint');
+      const gallery = document.getElementById('gallery');
       const rail = document.getElementById('photoRail');
       const group = document.getElementById('photoGroup');
 
@@ -459,19 +530,36 @@
 
       }
 
-      /* VIDEO AUTOPLAY */
+      /* PLAY VIDEO WITH SOUND */
 
-      // Browsers usually require muted autoplay.
+      playBtn.addEventListener('click', async () => {
 
-      video.play().catch(() => {
-        // Controls remain available if autoplay is blocked.
+        video.muted = false;
+        video.volume = 1;
+
+        try {
+
+          await video.play();
+
+          playBtn.style.display = 'none';
+          playHint.style.display = 'none';
+
+        } catch (error) {
+
+          console.error('Video playback failed:', error);
+
+          playHint.textContent =
+            'Please use the video play controls to try again ❤️';
+
+        }
+
       });
 
       /* SCROLL TO GALLERY AFTER VIDEO */
 
       video.addEventListener('ended', () => {
 
-        document.getElementById('gallery').scrollIntoView({
+        gallery.scrollIntoView({
 
           behavior: reduceMotion ? 'auto' : 'smooth',
 
