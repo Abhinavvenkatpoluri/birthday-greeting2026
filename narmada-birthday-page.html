@@ -140,11 +140,17 @@
       );
     }
 
+    /* INFINITE SCROLLING RAIL */
+
     .rail {
       display: flex;
       width: max-content;
-      gap: clamp(12px, 2.2vw, 25px);
-      padding: 18px 8px 30px;
+
+      /* No gap between the original and duplicated groups */
+      gap: 0;
+
+      /* No horizontal padding, so the loop aligns perfectly */
+      padding: 18px 0 30px;
 
       animation: photo-scroll 72s linear infinite;
       animation-play-state: paused;
@@ -156,16 +162,12 @@
       animation-play-state: running;
     }
 
-    .gallery.started:hover .rail,
-    .gallery.started:focus-within .rail,
-    .gallery.started:active .rail {
-      animation-play-state: paused;
-    }
-
     .photo-group {
       display: flex;
       flex: 0 0 auto;
       align-items: center;
+
+      /* Spacing between individual photos */
       gap: clamp(12px, 2.2vw, 25px);
     }
 
@@ -383,7 +385,7 @@
 
         </div>
 
-        <!-- DUPLICATE GROUP GENERATED AUTOMATICALLY -->
+        <!-- DUPLICATE GROUP IS CREATED AUTOMATICALLY BY JAVASCRIPT -->
 
       </div>
     </section>
@@ -469,20 +471,25 @@
 
         gallery.classList.add('started');
 
-        // After the first play ends, repeat from 0:00.
+        // After the first playback, repeat from 0:00.
         galleryAudio.addEventListener('ended', () => {
+
           galleryAudio.currentTime = 0;
+
           galleryAudio.play().catch(console.error);
+
         });
 
         // First playback starts at 0:36.
         galleryAudio.currentTime = 36;
 
         galleryAudio.play().catch((error) => {
+
           console.warn(
             'Audio playback was blocked by the browser:',
             error
           );
+
         });
       };
 
