@@ -7,7 +7,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#8f174b">
 
-  <!-- ACTUAL WEBSITE TITLE -->
   <title>Happy Birthday, Narmada ❤️</title>
 
   <!-- INSTAGRAM / WHATSAPP LINK PREVIEW -->
@@ -16,20 +15,16 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Birthday Greetings">
   <meta property="og:description" content="">
-  <meta property="og:url"
-        content="https://birthday-greeting2026.vercel.app/">
+  <meta property="og:url" content="https://birthday-greeting2026.vercel.app/">
 
-  <meta property="og:image"
-        content="https://birthday-greeting2026.vercel.app/preview.jpg">
-
+  <meta property="og:image" content="https://birthday-greeting2026.vercel.app/preview.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Birthday Greetings">
   <meta name="twitter:description" content="">
-  <meta name="twitter:image"
-        content="https://birthday-greeting2026.vercel.app/preview.jpg">
+  <meta name="twitter:image" content="https://birthday-greeting2026.vercel.app/preview.jpg">
 
   <style>
 
@@ -241,6 +236,117 @@
       outline-offset: 5px;
     }
 
+    /* AUDIO WELCOME POPUP */
+
+    .audio-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 20px;
+
+      background: rgba(35, 3, 19, .94);
+      backdrop-filter: blur(12px);
+
+      transition: opacity .5s ease, visibility .5s ease;
+    }
+
+    .audio-overlay.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .audio-popup {
+      width: min(100%, 370px);
+      padding: 36px 25px;
+
+      text-align: center;
+
+      border: 1px solid rgba(255,220,234,.4);
+      border-radius: 24px;
+
+      background: linear-gradient(
+        145deg,
+        #851542,
+        #4b0928
+      );
+
+      box-shadow: 0 20px 70px rgba(0,0,0,.4);
+
+      animation: popupAppear .7s ease both;
+    }
+
+    @keyframes popupAppear {
+      from {
+        opacity: 0;
+        transform: translateY(20px) scale(.94);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .audio-icon {
+      margin-bottom: 18px;
+      font-size: 42px;
+    }
+
+    .audio-popup h2 {
+      margin: 0 0 12px;
+
+      color: #ffd5e5;
+
+      font-size: 1.65rem;
+    }
+
+    .audio-popup p {
+      margin: 0 0 25px;
+
+      color: #ffe5ef;
+
+      font: 15px/1.7 system-ui, sans-serif;
+    }
+
+    .unmute-btn {
+      width: 100%;
+      padding: 15px 20px;
+
+      border: 1px solid rgba(255,255,255,.4);
+      border-radius: 50px;
+
+      color: white;
+
+      background: linear-gradient(
+        135deg,
+        #ff5c9a,
+        #d62970
+      );
+
+      font: 600 16px system-ui, sans-serif;
+
+      cursor: pointer;
+
+      box-shadow: 0 8px 25px rgba(255,70,140,.3);
+
+      transition: transform .25s ease;
+    }
+
+    .unmute-btn:hover {
+      transform: scale(1.04);
+    }
+
+    .unmute-btn:focus-visible {
+      outline: 3px solid white;
+      outline-offset: 4px;
+    }
+
     /* MOBILE RESPONSIVE */
 
     @media (max-width: 480px) {
@@ -285,6 +391,31 @@
 </head>
 
 <body>
+
+  <!-- AUDIO FILE -->
+  <audio id="birthdayAudio" src="audio.mp3" loop preload="auto"></audio>
+
+  <!-- AUDIO WELCOME POPUP -->
+  <div class="audio-overlay" id="audioOverlay">
+
+    <div class="audio-popup">
+
+      <div class="audio-icon">🎵</div>
+
+      <h2>A little music first...</h2>
+
+      <p>
+        Before you explore your birthday surprise,
+        turn on the music and enjoy the moment ❤️
+      </p>
+
+      <button class="unmute-btn" id="unmuteBtn">
+        Unmute Audio 🔊
+      </button>
+
+    </div>
+
+  </div>
 
   <main class="page">
 
@@ -335,11 +466,37 @@
 
     <!-- SURPRISE BUTTON -->
 
-    <a href="narmada-birthday-page.html" class="surprise-btn">
+    <a href="narmada_birthday_page.html" class="surprise-btn">
       Click to view a surprise ✨
     </a>
 
   </main>
+
+  <script>
+
+    const audio = document.getElementById('birthdayAudio');
+    const overlay = document.getElementById('audioOverlay');
+    const unmuteBtn = document.getElementById('unmuteBtn');
+
+    unmuteBtn.addEventListener('click', async () => {
+
+      try {
+
+        await audio.play();
+
+        overlay.classList.add('hidden');
+
+      } catch (error) {
+
+        unmuteBtn.textContent = 'Tap to try again 🔊';
+
+        console.error('Audio could not start:', error);
+
+      }
+
+    });
+
+  </script>
 
 </body>
 </html>

@@ -111,57 +111,6 @@
       border-radius: clamp(10px, 1.5vw, 18px);
     }
 
-    /* PLAY WITH SOUND BUTTON */
-
-    .play-btn {
-      display: block;
-      margin: 18px auto 12px;
-      padding: 15px 32px;
-
-      border: 1px solid rgba(255,255,255,.6);
-      border-radius: 50px;
-
-      background: linear-gradient(
-        135deg,
-        #f78bb6,
-        #d94c89
-      );
-
-      color: white;
-      font-size: 16px;
-      font-weight: 650;
-      letter-spacing: .3px;
-
-      cursor: pointer;
-
-      box-shadow: 0 8px 25px rgba(217,76,137,.25);
-
-      transition:
-        transform .3s ease,
-        box-shadow .3s ease;
-    }
-
-    .play-btn:hover {
-      transform: translateY(-3px) scale(1.03);
-      box-shadow: 0 12px 30px rgba(217,76,137,.4);
-    }
-
-    .play-btn:active {
-      transform: scale(.96);
-    }
-
-    .play-btn:focus-visible {
-      outline: 3px solid #a72d66;
-      outline-offset: 4px;
-    }
-
-    .play-hint {
-      margin: 0 0 12px;
-      text-align: center;
-      color: #95647b;
-      font-size: 12px;
-    }
-
     /* GALLERY */
 
     .gallery {
@@ -193,15 +142,18 @@
       padding: 18px 8px 30px;
 
       animation: photo-scroll 72s linear infinite;
+      animation-play-state: paused;
+
       will-change: transform;
     }
 
-    .gallery:hover .rail,
-    .gallery:focus-within .rail {
-      animation-play-state: paused;
+    .gallery.started .rail {
+      animation-play-state: running;
     }
 
-    .gallery:active .rail {
+    .gallery.started:hover .rail,
+    .gallery.started:focus-within .rail,
+    .gallery.started:active .rail {
       animation-play-state: paused;
     }
 
@@ -263,7 +215,6 @@
     /* MOBILE RESPONSIVE */
 
     @media (max-width: 600px) {
-
       main {
         padding: 12px 10px 42px;
       }
@@ -283,10 +234,6 @@
       .gallery {
         margin-top: 42px;
       }
-
-      .play-btn {
-        width: min(100%, 290px);
-      }
     }
 
     @media (max-width: 380px) {
@@ -299,7 +246,6 @@
     /* REDUCED MOTION */
 
     @media (prefers-reduced-motion: reduce) {
-
       *, *::before, *::after {
         scroll-behavior: auto !important;
         animation: none !important;
@@ -316,20 +262,17 @@
         transform: none !important;
       }
     }
-
   </style>
 </head>
 
 <body>
 
   <!-- SNOW -->
-
   <div id="snow" aria-hidden="true"></div>
 
   <main>
 
     <!-- BIRTHDAY VIDEO -->
-
     <section class="video-wrap" aria-label="Birthday video">
 
       <video
@@ -345,19 +288,9 @@
         Sorry, your browser does not support embedded videos.
 
       </video>
-
-      <!-- PLAY WITH SOUND BUTTON -->
-
-    
-
-      <p class="play-hint" id="playHint">
-        A little surprise is waiting for you ✨
-      </p>
-
     </section>
 
     <!-- PHOTO GALLERY -->
-
     <section
       class="gallery"
       id="gallery"
@@ -453,13 +386,10 @@
   </main>
 
   <script>
-
     (() => {
 
       const snow = document.getElementById('snow');
       const video = document.getElementById('birthdayVideo');
-      const playBtn = document.getElementById('playBtn');
-      const playHint = document.getElementById('playHint');
       const gallery = document.getElementById('gallery');
       const rail = document.getElementById('photoRail');
       const group = document.getElementById('photoGroup');
@@ -501,9 +431,7 @@
           flake.className = 'flake';
 
           flake.style.left = `${Math.random() * 100}%`;
-
           flake.style.width = `${size}px`;
-
           flake.style.height = `${size}px`;
 
           flake.style.opacity =
@@ -516,54 +444,59 @@
             `${-Math.random() * 20}s`;
 
           fragment.appendChild(flake);
-
         }
 
         snow.appendChild(fragment);
-
       }
 
-      /* PLAY VIDEO WITH SOUND */
+      /* AUDIO AND GALLERY START AFTER VIDEO ENDS */
 
-      playBtn.addEventListener('click', async () => {
+      const galleryAudio = new Audio('audio.mp3');
+      galleryAudio.preload = 'auto';
 
-        video.muted = false;
-        video.volume = 1;
+      let galleryStarted = false;
 
-        try {
+      const startGallery = () => {
 
-          await video.play();
+        if (galleryStarted) return;
 
-          playBtn.style.display = 'none';
-          playHint.style.display = 'none';
+        galleryStarted = true;
 
-        } catch (error) {
+        gallery.classList.add('started');
 
-          console.error('Video playback failed:', error);
+        galleryAudio.play().catch((error) => {
+          console.warn(
+            'Audio playback was blocked by the browser:',
+            error
+          );
+        });
+      };
 
-          playHint.textContent =
-            'Please use the video play controls to try again ❤️';
+      const galleryObserver = new IntersectionObserver((entries) => {
 
+        if (entries.some((entry) => entry.isIntersecting)) {
+
+          startGallery();
+
+          galleryObserver.disconnect();
         }
 
+      }, {
+        threshold: 0.35
       });
-
-      /* SCROLL TO GALLERY AFTER VIDEO */
 
       video.addEventListener('ended', () => {
 
+        galleryObserver.observe(gallery);
+
         gallery.scrollIntoView({
-
           behavior: reduceMotion ? 'auto' : 'smooth',
-
           block: 'center'
-
         });
 
       });
 
     })();
-
   </script>
 
 </body>
