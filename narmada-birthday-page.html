@@ -1,6 +1,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,10 +33,12 @@
       min-height: 100svh;
       overflow-x: clip;
       color: #593d50;
+
       background:
         radial-gradient(ellipse at 12% 18%, #fff9, transparent 35%),
         radial-gradient(ellipse at 90% 80%, #e8d8f6d9, transparent 38%),
         linear-gradient(135deg, #fce8f0, #fff5f6 48%, #f1eafa);
+
       font-family: system-ui, -apple-system, BlinkMacSystemFont,
         "Segoe UI", sans-serif;
     }
@@ -91,12 +94,14 @@
       padding: clamp(5px, 1vw, 10px);
       border: 1px solid #ffffffd9;
       border-radius: clamp(15px, 2.2vw, 26px);
+
       background: linear-gradient(
         135deg,
         #fff,
         #f2c9da,
         #e7dcf3
       );
+
       box-shadow: var(--shadow);
     }
 
@@ -463,6 +468,15 @@
         galleryStarted = true;
 
         gallery.classList.add('started');
+
+        // After the first play ends, repeat from 0:00.
+        galleryAudio.addEventListener('ended', () => {
+          galleryAudio.currentTime = 0;
+          galleryAudio.play().catch(console.error);
+        });
+
+        // First playback starts at 0:36.
+        galleryAudio.currentTime = 36;
 
         galleryAudio.play().catch((error) => {
           console.warn(
